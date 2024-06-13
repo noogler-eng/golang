@@ -22,7 +22,7 @@ func divide(a, b float64) (float64, error) {
 	if b == 0 {
 		return 0, fmt.Errorf("dominator must not be 0")
 	}
-	return a / b, nil;
+	return a / b, nil
 }
 
 func main() {
@@ -85,5 +85,58 @@ func main() {
 	fmt.Println("👀 calling the function", new_ans)
 	fmt.Println(err)
 
+	// here all elemnts initilized to 0 initially
+	// spaces are allocated
+	var nums [5]int
+	nums[0] = 10
+	nums[1] = 20
+	nums[2] = 30
+	fmt.Println("array elements", nums)
+
+	corals := [4]string{"blue coral", "staghorn coral", "pillar coral", "elkhorn coral"}
+	fmt.Println(corals)
+	// printing full aray by %q
+	// %q means quoted string
+	fmt.Printf("%q\n", corals)
+
+	// finding length of an array
+	length := len(corals)
+	fmt.Println(length)
+
+	price := [5]int{}
+	fmt.Println(price)
+
+	new_price := [5]string{}
+	fmt.Println(new_price)
+	fmt.Printf("%q\n", new_price)
+
+	// for dynamic array we are using slice
+	// here we can append the data
+	// slice underlying data structure array in RAM
+	// it has pointer, len, capacity
+	// here also length becomes double when it will full
+	numbers := []int{1, 2, 3, 4, 5}
+	fmt.Println(cap(numbers))
+
+	numbers = append(numbers, 3, 10, 13, 15)
+	fmt.Println(numbers)
+	fmt.Printf("%T\n", numbers);
+	fmt.Println(len(numbers))
+	fmt.Println(cap(numbers))
+
+	// empty slice
+	cities := []int{};
+	fmt.Println(cities)
+	fmt.Printf("%T\n", cities);
+	fmt.Println(len(cities))
+	fmt.Println(cap(cities))
+
+	// using make to set capacites and length
+	new_cities := make([]int, 3, 5)
+	new_cities = append(new_cities, 10, 20, 30)
+	fmt.Println("✅", new_cities)
+	fmt.Printf("%T\n", new_cities);
+	fmt.Println(len(new_cities))
+	fmt.Println(cap(new_cities))
 
 }
