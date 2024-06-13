@@ -9,15 +9,21 @@ import (
 )
 
 // function
-func sum(a int, b int) int{
-	return a+b
+func sum(a int, b int) int {
+	return a + b
 }
 
 // declarin all a, b to int, short form
-func sumAdv(a, b int) int{
-	return a+b
+func sumAdv(a, b int) int {
+	return a + b
 }
 
+func divide(a, b float64) (float64, error) {
+	if b == 0 {
+		return 0, fmt.Errorf("dominator must not be 0")
+	}
+	return a / b, nil;
+}
 
 func main() {
 
@@ -68,9 +74,16 @@ func main() {
 	fmt.Println(whatName)
 
 	ans := sum(2, 3)
-	fmt.Println("👀 calling the function",ans)
+	fmt.Println("👀 calling the function", ans)
 
 	ans = sumAdv(2, 3)
-	fmt.Println("👀 calling the function",ans)
+	fmt.Println("👀 calling the function", ans)
+
+	// error handling
+	// _ is used for discarding the error
+	new_ans, err := divide(10, 0)
+	fmt.Println("👀 calling the function", new_ans)
+	fmt.Println(err)
+
 
 }
